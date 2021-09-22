@@ -7,6 +7,7 @@ import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
+import SeatBook from './pages/cafetaria/SeatBook'
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import UserMap from "./pages/userMap/UserMap";
@@ -34,7 +35,8 @@ function App() {
             <NewUser />
           </Route>
           <Route path="/products">
-            <ProductList />
+            {/* <ProductList /> */}
+            <SeatBook />
           </Route>
           <Route path="/product/:productId">
             <Product />
