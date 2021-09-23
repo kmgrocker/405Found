@@ -66,8 +66,8 @@ const UserMap = () => {
 
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
-        defaultCenter={{ lat: 52.6376, lng: -1.135171 }}
-        defaultZoom={10}
+          defaultCenter={{ lat: 28.4257194, lng: 77.0290894 }}
+        defaultZoom={20}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map }) => {
           mapRef.current = map;
