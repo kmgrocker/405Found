@@ -31,55 +31,53 @@ export default function Sidebar() {
             <Link to="/usermap" className="link">
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Analytics
+              user map
             </li>
             </Link>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
-          </ul>
-        </div>
-        <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Quick Menu</h3>
-          <ul className="sidebarList">
             <Link to="/users" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
                 Employee Attendance
               </li>
-            </Link>
+          </Link>
+          </ul>
+        </div>
+        
+        <div className="sidebarMenu">
+          <h3 className="sidebarTitle">Quick Menu</h3>
+          <ul className="sidebarList">
+           
             <Link to="/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 Cafeteria
               </li>
             </Link>
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Transactions
-            </li>
-            <li className="sidebarListItem">
+            </li> */}
+            {/* <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Notifications</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
+            {/* <li className="sidebarListItem">
               <MailOutline className="sidebarIcon" />
               Mail
-            </li>
-            <li className="sidebarListItem">
+            </li> */}
+            {/* <li className="sidebarListItem">
               <DynamicFeed className="sidebarIcon" />
               Feedback
-            </li>
-            <li className="sidebarListItem">
+            </li> */}
+            {/* <li className="sidebarListItem">
               <ChatBubbleOutline className="sidebarIcon" />
               Messages
-            </li>
+            </li> */}
           </ul>
         </div>
         <div className="sidebarMenu">
