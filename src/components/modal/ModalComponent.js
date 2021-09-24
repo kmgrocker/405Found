@@ -10,11 +10,11 @@ const ModalComponent = ({isOpen,toggleModal,person,employeeId}) => {
       contentLabel="My dialog"
       className="mymodal"
       overlayClassName="myoverlay"
-      closeTimeoutMS={500}
+      closeTimeoutMS={100}
     >
       <div>
         <h1>Person In Qusetion</h1>
-        <h2>Employee Id <span>{employeeId}</span></h2>
+        <h2>EmployeeId: <span>{employeeId}</span></h2>
         <h3>Name: {person}</h3>
       </div>
       <button onClick={toggleModal}>Close modal</button>

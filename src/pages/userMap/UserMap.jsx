@@ -5,8 +5,111 @@ import useSupercluster from "use-supercluster";
 import Modal from "react-modal";
 import ModalComponent from "../../components/modal/ModalComponent";
 import './userMap.css';
-import {social_Distancing_MapData} from '../../dummyData'
+// import {social_Distancing_MapData} from '../../dummyData'
 
+ const social_Distancing_MapData  = [
+  {
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257180",
+      person: { id: 4142000, name: "Dileep Kumar" },
+      longitude: "77.0281669",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213188,
+    location_subtype: "",
+    month: "2021-09",
+  },
+  {
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257294",
+      person: { id: 4142030, name: "Krishn Gandhi" },
+      longitude: "77.0281767",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213188,
+    location_subtype: "",
+    month: "2021-09",
+  },{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257394",
+      person: { id: 414250, name: "Sakshi Sharma" },
+      longitude: "77.0281867",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213188,
+    location_subtype: "",
+    month: "2021-09",
+  },{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257494",
+      person: { id: 414255, name: "Omkar Verma"},
+      longitude: "77.0281967",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213188,
+    location_subtype: "",
+    month: "2021-09",
+  },{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257394",
+      person: { id: 4142099, name: "Sudhir Chauhan"},
+      longitude: "77.0281667",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213188,
+    location_subtype: "",
+    month: "2021-09",
+  },{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257194",
+      person: {id: 4142200, name: "Mayank Rajput" },
+      longitude: "77.0281667",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213188,
+    location_subtype: "",
+    month: "2021-09",
+  },{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257194",
+      person: { id: 882285, name: "manjeet" },
+      longitude: "77.0281667",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213188,
+    location_subtype: "",
+    month: "2021-09",
+  },
+ 
+];
 const fetcher = (...args) => fetch(...args).then(response => response.json());
 
 const Marker = ({ children }) => children;
@@ -14,7 +117,7 @@ const Marker = ({ children }) => children;
 Modal.setAppElement("#root");
 
 const UserMap = () => {
-
+console.log('social_Distancing_MapData',social_Distancing_MapData);
   const mapRef = useRef();
   const [bounds, setBounds] = useState(null);
   const [zoom, setZoom] = useState(10);
@@ -34,7 +137,7 @@ const UserMap = () => {
 //   const peopleClusterData = data && !error ? data.slice(0, 200) : [];
 
   const data = social_Distancing_MapData;
-  const peopleClusterData = data.slice(0, 10);
+  const peopleClusterData = data.slice(0, 7);
 
   const points = peopleClusterData.map(people => ({
     type: "Feature",
@@ -67,7 +170,7 @@ const UserMap = () => {
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
           defaultCenter={{ lat: 28.4257194, lng: 77.0290894 }}
-        defaultZoom={20}
+        defaultZoom={10}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map }) => {
           mapRef.current = map;

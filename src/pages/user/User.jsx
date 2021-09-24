@@ -6,12 +6,124 @@ import {
   PhoneAndroid,
   Publish,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link,useParams} from "react-router-dom";
 import "./user.css";
-
+import {React,useState,useEffect} from 'react';
+// import { userRows } from "../../dummyData";
 
 import { QRCode } from 'react-qr-svg';
-
+const userRows = [
+    {
+      id: 1,
+      username: "Sakshi sharma",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "Sakshi@gmail.com",
+      status: "active",
+      transaction: "500",
+      address:'Meerut,India',
+      phone:'5643567890',
+    },
+    {
+      id: 2,
+      username: "Dileep Kumar",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "Dileep@gmail.com",
+      status: "active",
+      transaction: "200",
+      address:'NewCity,UK',
+      phone:'7653567890',
+    },
+    {
+      id: 3,
+      username: "Sudhir Chauhan",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "Sudhir@gmail.com",
+      status: "active",
+      transaction: "320",
+      address:'NewCity,UK',
+      phone:'7500567890',
+    },
+    {
+      id: 4,
+      username: "Omkar verma",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "Omkar@gmail.com",
+      status: "active",
+      transaction: "786",
+      address:'Goa,India',
+      phone:'1234567890',
+    },
+    {
+      id: 5,
+      username: "Chad Snow",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "jon@gmail.com",
+      status: "active",
+      transaction: "380",
+      address:'Hapur,India',
+      phone:'7861567890',
+    },
+    {
+      id: 6,
+      username: "Chip Snow",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "jon@gmail.com",
+      status: "active",
+      transaction: "470",
+      address:'Chennai,India',
+      phone:'9714567890',
+    },
+    {
+      id: 7,
+      username: "Saun Snow",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "Saun@gmail.com",
+      status: "active",
+      transaction: "560",
+      address:'Gurgaon,India',
+      phone:'12345454890',
+    },
+    {
+      id: 8,
+      username: "Emily Snow",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "Emily@gmail.com",
+      status: "active",
+      transaction: "350",
+      address:'NewCity,UK',
+      phone:'1234567890',
+    },
+    {
+      id: 9,
+      username: "Gilbert Snow",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "Gilbert@gmail.com",
+      status: "active",
+      transaction: "430",
+      address:'Delhi,India',
+      phone:'1234567890',
+    },
+    {
+      id: 10,
+      username: "zayn Snow",
+      avatar:
+        "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+      email: "zayn@gmail.com",
+      status: "active",
+      transaction: "456",
+      address:'NewCity,UK',
+      phone:'1234567890',
+    },
+  ];
 const styles = {
 
   qrcode: {
@@ -26,6 +138,23 @@ const styles = {
 
 
 export default function User() {
+const [showData, setShowData]=useState({"username":null, "email":null, "address":null,"phone":null});
+  const {userId} = useParams()
+  console.log('***',userId);
+  const findByuserById = (id)=>{
+let user = userRows.filter(user=>user.id==id);
+return user;
+
+}
+   useEffect(()=>{
+     console.log('userid',userId);
+     const data=findByuserById(userId)
+     console.log('data',data);
+     setShowData({"username":data[0].username, "email":data[0].email,"address":data[0].address,"phone":data[0].phone})
+     
+     
+   },[])
+     console.log('showData',showData.username);
   return (
     
     <div className="user">
@@ -44,7 +173,7 @@ export default function User() {
               className="userShowImg"
             />
             <div className="userShowTopTitle">
-              <span className="userShowUsername">Anna Becker</span>
+              <span className="userShowUsername">{showData.username}</span>
               <span className="userShowUserTitle">Software Engineer</span>
             </div>
           </div>
@@ -52,7 +181,7 @@ export default function User() {
             <span className="userShowTitle">Account Details</span>
             <div className="userShowInfo">
               <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99</span>
+              <span className="userShowInfoTitle">{showData.username}</span>
             </div>
             <div className="userShowInfo">
               <CalendarToday className="userShowIcon" />
@@ -61,15 +190,15 @@ export default function User() {
             <span className="userShowTitle">Contact Details</span>
             <div className="userShowInfo">
               <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">+1 123 456 67</span>
+              <span className="userShowInfoTitle">{showData.phone}</span>
             </div>
             <div className="userShowInfo">
               <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99@gmail.com</span>
+              <span className="userShowInfoTitle">{showData.email}</span>
             </div>
             <div className="userShowInfo">
               <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">New York | USA</span>
+              <span className="userShowInfoTitle">{showData.address}</span>
             </div>
           </div>
         </div>
@@ -78,10 +207,11 @@ export default function User() {
           <form className="userUpdateForm">
             <div className="userUpdateLeft">
               <div className="userUpdateItem">
+             
                 <label>Username</label>
                 <input
                   type="text"
-                  placeholder="annabeck99"
+                  placeholder={`${showData.username}`}
                   className="userUpdateInput"
                 />
               </div>
@@ -89,7 +219,7 @@ export default function User() {
                 <label>Full Name</label>
                 <input
                   type="text"
-                  placeholder="Anna Becker"
+                  placeholder={`${showData.username}`}
                   className="userUpdateInput"
                 />
               </div>
@@ -97,7 +227,7 @@ export default function User() {
                 <label>Email</label>
                 <input
                   type="text"
-                  placeholder="annabeck99@gmail.com"
+                  placeholder={`${showData.email}`}
                   className="userUpdateInput"
                 />
               </div>
@@ -105,7 +235,7 @@ export default function User() {
                 <label>Phone</label>
                 <input
                   type="text"
-                  placeholder="+1 123 456 67"
+                  placeholder={`${showData.phone}`}
                   className="userUpdateInput"
                 />
               </div>
@@ -113,7 +243,7 @@ export default function User() {
                 <label>Address</label>
                 <input
                   type="text"
-                  placeholder="New York | USA"
+                  placeholder={`${showData.address}`}
                   className="userUpdateInput"
                 />
               </div>
@@ -137,7 +267,7 @@ export default function User() {
             style={{ width: 156, height:156 }}
             value={JSON.stringify({
               EmployeeId: 928328,
-              Name: 'Anna Becker',
+              Name: `${showData.username}`,
              
             })}
           />
