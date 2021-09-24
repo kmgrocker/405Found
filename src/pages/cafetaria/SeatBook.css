@@ -58,3 +58,6 @@
 .seat-picker__row--selected{
  background-color: white;
 }
+h1 {
+    font-size: 30px;
+}

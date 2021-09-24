@@ -9,9 +9,16 @@
 .sidebarWrapper {
   padding: 20px;
   color: #555;
-  width:150px;
+  /*width:150px;*/
 }
+.maskIcon{
 
+width: 2em;
+    height: 2em;
+  
+    margin: 0 -5px;
+
+}
 .sidebarMenu {
   margin-bottom: 10px;
 }
@@ -31,7 +38,8 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
+  border-bottom: 1px solid #eee;
 }
 
 .sidebarListItem.active,

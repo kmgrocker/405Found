@@ -17,7 +17,7 @@ const ModalComponent = ({isOpen,toggleModal,person,employeeId}) => {
         <h2>EmployeeId: <span>{employeeId}</span></h2>
         <h3>Name: {person}</h3>
       </div>
-      <button onClick={toggleModal}>Close modal</button>
+      <button onClick={toggleModal}>Close</button>
     </Modal>
   )
 }

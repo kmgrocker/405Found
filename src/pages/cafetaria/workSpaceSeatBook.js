@@ -5,23 +5,17 @@ import SeatPicker from "react-seat-picker";
 import './SeatBook.css'
 
 import ModalComponent from "../../components/modal/cafeteriaModal";
-import axios from 'axios';
 
 
-class SeatBook extends Component {
+class WorkSpaceSeatBook extends Component {
   state = {
     loading: false,
     seatName:'',
     customMsg:'',
-    isOpen:false
+    isOpen:false,
+    
       };
       
-      componentDidMount(){
-        console.log('s')
-        // fetch('https://jsonplaceholder.typicode.com/users').then(data=>data.json()).then(resp=>console.log(resp))
-        fetch("https://0f98bc047fda4258b4e06f1afdea5c4e.vfs.cloud9.ap-south-1.amazonaws.com/cafeteria?phone=7465874242").then(data=>data.json()).then(resp=>console.log(resp))
-        
-      }
  toggleModal=() =>{       
         this.setState({isOpen:!this.state.isOpen});
        
@@ -46,33 +40,6 @@ class SeatBook extends Component {
     );
   };
 
-apiCall = () => {
-  console.log('abc');
-    const bodyFormData = {
-      phone:'9711605159',
-      seat:'A5',
-    };
-    console.log('kkk',bodyFormData);
-    
-      axios({
-     method: "GET",
-     url: "https://0f98bc047fda4258b4e06f1afdea5c4e.vfs.cloud9.ap-south-1.amazonaws.com/cafeteria?phone=7465874242",
-     headers: { 
-       'Access-Control-Allow-Credentials': 'true',
-      'Content-Type' : 'application/json; charset=UTF-8'
-     
-     },
-})
-  .then(function (response) {
-    //handle success
-    console.log(response);
-  })
-  .catch(function (response) {
-    //handle error
-    console.log(response);
-  })
-  
-};
   // addSeatCallbackContinousCase = (
   //   { row, number, id },
   //   addCb,
@@ -255,13 +222,13 @@ apiCall = () => {
       <div className='seatWrapper'>
    <ModalComponent 
         isOpen={isOpen} 
-        toggleModal={()=>this.apiCall()}
+        toggleModal={this.toggleModal}
         seatName={seatName}
         customMsg={customMsg}
                   />
 
 
-        <h1 style={{textAlign:'center',color:'teal', fontSize:'30px'}}>Cafeteria Seat Arrangement</h1>
+        <h1 style={{textAlign:'center',color:'teal', fontSize: '30px'}}>Workspace Seat Arrangement</h1>
         <div style={{ marginTop: "20px" }}>
           <SeatPicker
             addSeatCallback={this.addSeatCallback}
@@ -310,6 +277,6 @@ apiCall = () => {
   }
 }
 
-export default SeatBook;
+export default WorkSpaceSeatBook;
 
 

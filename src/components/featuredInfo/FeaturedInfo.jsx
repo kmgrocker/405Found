@@ -1,6 +1,7 @@
 import "./featuredInfo.css";
 import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
 
+
 export default function FeaturedInfo() {
   return (
     <div className="featured">
@@ -42,6 +43,7 @@ export default function FeaturedInfo() {
         <span className="featuredTitle">Total No. Available oxygen concentrators</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">300</span>
+          
           {/* <span className="featuredMoneyRate">
             +2.4 <ArrowUpward className="featuredIcon"/>
           </span> */}

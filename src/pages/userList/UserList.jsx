@@ -174,6 +174,7 @@ console.log(data);
 
   return (
     <div className="userList">
+     <h1 style={{textAlign:'center',color:'teal', fontSize: '30px'}}>Employee List</h1>
       <DataGrid
         rows={data}
         disableSelectionOnClick

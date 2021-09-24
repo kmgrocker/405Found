@@ -12,7 +12,9 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
+Business,
 } from "@material-ui/icons";
+
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
@@ -31,7 +33,7 @@ export default function Sidebar() {
             <Link to="/usermap" className="link">
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              user map
+              Density Tracker
             </li>
             </Link>
             <Link to="/users" className="link">
@@ -47,16 +49,26 @@ export default function Sidebar() {
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
            
-            <Link to="/products" className="link">
+            <Link to="/CafeteriaSeatBook" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Cafeteria
+                Cafeteria Seat Booking
               </li>
+              
             </Link>
-            {/* <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Transactions
-            </li> */}
+             <li className="sidebarListItem">
+              <img className="maskIcon" src="https://thumbs.dreamstime.com/b/corona-virus-covid-color-icons-vector-icon-design-very-nice-modern-unique-you-can-easily-use-face-mask-man-heart-187659776.jpg"/>
+              Face Mask Detector
+            </li> 
+                        <Link to="/WorkSpaceSeatBook" className="link">
+              <li className="sidebarListItem">
+                <Business className="sidebarIcon" />
+                WorkSpace Seat Booking
+              </li>
+              
+            </Link>
+            
+            
             {/* <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports

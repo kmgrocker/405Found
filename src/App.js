@@ -11,6 +11,7 @@ import SeatBook from './pages/cafetaria/SeatBook'
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import UserMap from "./pages/userMap/UserMap";
+import WorkSpaceSeatBook from './pages/cafetaria/workSpaceSeatBook' ;
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
           <Route path="/newUser">
             <NewUser />
           </Route>
-          <Route path="/products">
+          <Route path="/CafeteriaSeatBook">
             {/* <ProductList /> */}
             <SeatBook />
           </Route>
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path="/newproduct">
             <NewProduct />
+          </Route>
+           <Route path="/WorkSpaceSeatBook">
+            <WorkSpaceSeatBook />
           </Route>
         </Switch>
       </div>

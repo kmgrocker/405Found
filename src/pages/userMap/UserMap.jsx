@@ -2,9 +2,11 @@ import React, { useState, useRef } from "react";
 import useSwr from "swr";
 import GoogleMapReact from "google-map-react";
 import useSupercluster from "use-supercluster";
-import Modal from "react-modal";
+
 import ModalComponent from "../../components/modal/ModalComponent";
 import './userMap.css';
+import Modal from "react-modal";
+
 // import {social_Distancing_MapData} from '../../dummyData'
 
  const social_Distancing_MapData  = [
@@ -27,9 +29,9 @@ import './userMap.css';
     category: "anti-social-behaviour",
     location_type: "Force",
     location: {
-      latitude: "28.4257294",
+      latitude: "28.4257345",
       person: { id: 4142030, name: "Krishn Gandhi" },
-      longitude: "77.0281767",
+      longitude: "77.0281457",
     },
     context: "",
     outcome_status: null,
@@ -41,9 +43,9 @@ import './userMap.css';
     category: "anti-social-behaviour",
     location_type: "Force",
     location: {
-      latitude: "28.4257394",
+      latitude: "28.4257454",
       person: { id: 414250, name: "Sakshi Sharma" },
-      longitude: "77.0281867",
+      longitude: "77.0281897",
     },
     context: "",
     outcome_status: null,
@@ -55,7 +57,7 @@ import './userMap.css';
     category: "anti-social-behaviour",
     location_type: "Force",
     location: {
-      latitude: "28.4257494",
+      latitude: "28.4257404",
       person: { id: 414255, name: "Omkar Verma"},
       longitude: "77.0281967",
     },
@@ -83,7 +85,7 @@ import './userMap.css';
     category: "anti-social-behaviour",
     location_type: "Force",
     location: {
-      latitude: "28.4257194",
+      latitude: "28.4257567",
       person: {id: 4142200, name: "Mayank Rajput" },
       longitude: "77.0281667",
     },
@@ -93,18 +95,122 @@ import './userMap.css';
     id: 78213188,
     location_subtype: "",
     month: "2021-09",
+  }
+  ,{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+     location: {
+      latitude: "28.4257777",
+      person: { id: 4142001, name: "Manjeet Kumar" },
+      longitude: "77.0281669",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213181,
+    location_subtype: "",
+    month: "2021-09",
+  },
+  
+  
+   {
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257222",
+      person: { id: 4142000, name: "Dileep Kumar" },
+      longitude: "77.0281333",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213182,
+    location_subtype: "",
+    month: "2021-09",
+  },
+  {
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257345",
+      person: { id: 4142033, name: "Krishn Gandhi" },
+      longitude: "77.0281457",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213183,
+    location_subtype: "",
+    month: "2021-09",
   },{
     category: "anti-social-behaviour",
     location_type: "Force",
     location: {
-      latitude: "28.4257194",
-      person: { id: 882285, name: "manjeet" },
+      latitude: "28.4257454",
+      person: { id: 4142504, name: "Sakshi Sharma" },
+      longitude: "77.0281897",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213184,
+    location_subtype: "",
+    month: "2021-09",
+  },{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4256704",
+      person: { id: 4142555, name: "Omkar Verma"},
+      longitude: "77.0281967",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213186,
+    location_subtype: "",
+    month: "2021-09",
+  },{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4255594",
+      person: { id: 41420997, name: "Sudhir Chauhan"},
       longitude: "77.0281667",
     },
     context: "",
     outcome_status: null,
     persistent_id: "",
-    id: 78213188,
+    id: 782131899,
+    location_subtype: "",
+    month: "2021-09",
+  },{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+    location: {
+      latitude: "28.4257787",
+      person: {id: 414220065, name: "Mayank Rajput" },
+      longitude: "77.0284997",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 78213134,
+    location_subtype: "",
+    month: "2021-09",
+  }
+  ,{
+    category: "anti-social-behaviour",
+    location_type: "Force",
+     location: {
+      latitude: "28.4259345",
+      person: { id: 4142030, name: "Dileep Kumar" },
+      longitude: "77.0285459",
+    },
+    context: "",
+    outcome_status: null,
+    persistent_id: "",
+    id: 782134188,
     location_subtype: "",
     month: "2021-09",
   },
@@ -137,7 +243,7 @@ console.log('social_Distancing_MapData',social_Distancing_MapData);
 //   const peopleClusterData = data && !error ? data.slice(0, 200) : [];
 
   const data = social_Distancing_MapData;
-  const peopleClusterData = data.slice(0, 7);
+  const peopleClusterData = data.slice(0, 20);
 
   const points = peopleClusterData.map(people => ({
     type: "Feature",
@@ -170,7 +276,7 @@ console.log('social_Distancing_MapData',social_Distancing_MapData);
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
           defaultCenter={{ lat: 28.4257194, lng: 77.0290894 }}
-        defaultZoom={10}
+        defaultZoom={18}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map }) => {
           mapRef.current = map;
