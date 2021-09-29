@@ -7,7 +7,7 @@ export default function FeaturedInfo() {
     <div className="featured">
 
         <div className="featuredItem">
-        <span className="featuredTitle">Total Employee</span>
+        <span className="featuredTitle">Total Number of Employees</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">5000</span>
           {/* <span className="featuredMoneyRate">
@@ -18,7 +18,7 @@ export default function FeaturedInfo() {
       </div>
 
       <div className="featuredItem">
-        <span className="featuredTitle">No. Of People Vaccinated (Fist Dose)</span>
+        <span className="featuredTitle">Vaccinated (First Dose)</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">1500</span>
           {/* <span className="featuredMoneyRate">
@@ -29,7 +29,7 @@ export default function FeaturedInfo() {
       </div>
 
       <div className="featuredItem">
-        <span className="featuredTitle">No. Of People Completely Vaccinated </span>
+        <span className="featuredTitle">Completely Vaccinated </span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">1800</span>
           {/* <span className="featuredMoneyRate">
@@ -40,7 +40,7 @@ export default function FeaturedInfo() {
       </div>
     
       <div className="featuredItem">
-        <span className="featuredTitle">Total No. Available oxygen concentrators</span>
+        <span className="featuredTitle">Oxygen concentrators</span>
         <div className="featuredMoneyContainer">
           <span className="featuredMoney">300</span>
           

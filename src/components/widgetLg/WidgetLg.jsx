@@ -8,10 +8,10 @@ export default function WidgetLg() {
 
   return (
     <div className="widgetLg">
-      <h3 className="widgetLgTitle">Rewards</h3>
+      <h3 className="widgetLgTitle">Earned Rewards</h3>
       <table className="widgetLgTable">
         <tr className="widgetLgTr">
-          <th className="widgetLgTh">Customer</th>
+          <th className="widgetLgTh">Employees</th>
           <th className="widgetLgTh">Date</th>
           <th className="widgetLgTh">Rewards</th>
           <th className="widgetLgTh">Status</th>

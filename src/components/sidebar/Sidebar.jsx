@@ -54,13 +54,16 @@ export default function Sidebar() {
                 <Storefront className="sidebarIcon" />
                 Cafeteria Seat Booking
               </li>
-              
             </Link>
+            
+            <Link to="/FaceMaskDetector" className="link">
              <li className="sidebarListItem">
               <img className="maskIcon" src="https://thumbs.dreamstime.com/b/corona-virus-covid-color-icons-vector-icon-design-very-nice-modern-unique-you-can-easily-use-face-mask-man-heart-187659776.jpg"/>
               Face Mask Detector
             </li> 
-                        <Link to="/WorkSpaceSeatBook" className="link">
+            </Link>
+            
+              <Link to="/WorkSpaceSeatBook" className="link">
               <li className="sidebarListItem">
                 <Business className="sidebarIcon" />
                 WorkSpace Seat Booking

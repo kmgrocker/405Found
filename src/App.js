@@ -12,6 +12,7 @@ import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import UserMap from "./pages/userMap/UserMap";
 import WorkSpaceSeatBook from './pages/cafetaria/workSpaceSeatBook' ;
+import FaceMaskDetector from './pages/facemask/FaceMaskDetector';
 
 function App() {
   return (
@@ -47,6 +48,9 @@ function App() {
           </Route>
            <Route path="/WorkSpaceSeatBook">
             <WorkSpaceSeatBook />
+          </Route>
+          <Route path="/FaceMaskDetector">
+            <FaceMaskDetector />
           </Route>
         </Switch>
       </div>

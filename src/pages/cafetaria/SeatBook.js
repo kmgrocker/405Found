@@ -19,14 +19,13 @@ class SeatBook extends Component {
       componentDidMount(){
         console.log('s')
         // fetch('https://jsonplaceholder.typicode.com/users').then(data=>data.json()).then(resp=>console.log(resp))
-        fetch("https://0f98bc047fda4258b4e06f1afdea5c4e.vfs.cloud9.ap-south-1.amazonaws.com/cafeteria?phone=7465874242").then(data=>data.json()).then(resp=>console.log(resp))
-        
+        // axios.get("https://0f98bc047fda4258b4e06f1afdea5c4e.vfs.cloud9.ap-south-1.amazonaws.com/cafeteria?phone=7465874242").then(data=>data.json()).then(resp=>console.log(resp))
       }
- toggleModal=() =>{       
+    toggleModal=() =>{       
         this.setState({isOpen:!this.state.isOpen});
        
-    }
-  addSeatCallback = ({ row, number, id }, addCb) => {
+     }
+   addSeatCallback = ({ row, number, id }, addCb) => {
    
     this.setState(
       {
@@ -48,29 +47,29 @@ class SeatBook extends Component {
 
 apiCall = () => {
   console.log('abc');
-    const bodyFormData = {
-      phone:'9711605159',
-      seat:'A5',
-    };
-    console.log('kkk',bodyFormData);
-    
-      axios({
-     method: "GET",
-     url: "https://0f98bc047fda4258b4e06f1afdea5c4e.vfs.cloud9.ap-south-1.amazonaws.com/cafeteria?phone=7465874242",
-     headers: { 
-       'Access-Control-Allow-Credentials': 'true',
-      'Content-Type' : 'application/json; charset=UTF-8'
-     
-     },
-})
-  .then(function (response) {
-    //handle success
-    console.log(response);
-  })
-  .catch(function (response) {
-    //handle error
-    console.log(response);
-  })
+  
+ axios.get('https://0f98bc047fda4258b4e06f1afdea5c4e.vfs.cloud9.ap-south-1.amazonaws.com/cafeteria?phone=7465874242', {
+	headers: {
+	  'Access-Control-Allow-Origin': '*',
+	},
+	proxy: {
+	  host: '52.66.213.117',
+	  port: 8080
+	}
+	}).then(function (response) {
+		console.log('response is : ' + response.data);
+	}).catch(function (error) {
+		if (error.response) {
+		  console.log(error.response.headers);
+		} 
+		else if (error.request) {
+	      console.log(error.request);
+		} 
+		else {
+		  console.log(error.message);
+		}
+	console.log(error.config);
+});
   
 };
   // addSeatCallbackContinousCase = (
@@ -255,7 +254,7 @@ apiCall = () => {
       <div className='seatWrapper'>
    <ModalComponent 
         isOpen={isOpen} 
-        toggleModal={()=>this.apiCall()}
+        toggleModal={this.toggleModal}
         seatName={seatName}
         customMsg={customMsg}
                   />
